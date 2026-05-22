@@ -1,0 +1,21 @@
+{
+  "respiratory": {
+    "advice": "Repos, hydratation, surveillance de la fièvre et de la toux. Éviter l'effort intense.",
+    "red_flags": [
+      "essoufflement au repos",
+      "douleur thoracique",
+      "lèvres bleutées",
+      "confusion",
+      "fièvre élevée persistante"
+    ]
+  },
+  "general": {
+    "advice": "Repos, hydratation, surveillance des symptômes pendant 48 à 72 h.",
+    "red_flags": [
+      "aggravation rapide",
+      "déshydratation sévère",
+      "douleur intense inhabituelle",
+      "troubles de la conscience"
+    ]
+  }
+}
