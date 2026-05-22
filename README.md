@@ -36,7 +36,7 @@ Créez un fichier `.env` à la racine à partir de `.env.example` :
 ```bash
 cp .env.example .env
 ```
-Puis renseignez votre clé :
+Puis renseignez vos variables :
 > Sans clé OpenAI, le système fonctionne en mode fallback avec des réponses génériques.
 
 ## Utilisation
