@@ -519,20 +519,13 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Step 1
   const [initialCase, setInitialCase] = useState("");
-
-  // Step 2
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [questionIndex, setQuestionIndex] = useState(1);
   const [answer, setAnswer] = useState("");
-
-  // Step 3
   const [summary, setSummary] = useState("");
   const [interimCare, setInterimCare] = useState("");
   const [treatment, setTreatment] = useState("");
-
-  // Step 4
   const [report, setReport] = useState("");
 
   const call = async (fn) => {
@@ -612,7 +605,7 @@ export default function App() {
     const blob = new Blob([report], { type: "text/markdown" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "rapport_orientation.md";
+    a.download = "rapport_clinia.md";
     a.click();
   };
 
@@ -625,14 +618,13 @@ export default function App() {
         <div className="header">
           <div className="header-icon">🩺</div>
           <div className="header-text">
-            <h1>Orientation clinique préliminaire</h1>
-            <p>Exercice académique — ne remplace pas une consultation médicale</p>
+            <h1>ClinIA</h1>
+            <p>Orientation clinique préliminaire — exercice académique</p>
           </div>
         </div>
 
         <Stepper currentStep={step} />
 
-        {/* STEP 1 */}
         {step === 1 && (
           <div className="card">
             <p className="card-title">Cas initial patient</p>
@@ -662,7 +654,6 @@ export default function App() {
           </div>
         )}
 
-        {/* STEP 2 */}
         {step === 2 && (
           <div className="card">
             <div className="thread-chip">
@@ -703,7 +694,6 @@ export default function App() {
           </div>
         )}
 
-        {/* STEP 3 */}
         {step === 3 && (
           <div className="card">
             <p className="card-title">Revue médecin traitant</p>
@@ -737,10 +727,9 @@ export default function App() {
           </div>
         )}
 
-        {/* STEP 4 */}
         {step === 4 && (
           <div className="card">
-            <p className="card-title">Rapport final d'orientation</p>
+            <p className="card-title">Rapport final ClinIA</p>
             <p className="card-subtitle" style={{ marginBottom: 28 }}>Consultation terminée</p>
             {report ? (
               <>

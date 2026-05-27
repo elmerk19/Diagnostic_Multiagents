@@ -1,4 +1,4 @@
-# 🩺 Diagnostic Multi-Agents d'Orientation Clinique Préliminaire
+# 🩺 ClinIA — Orientation Clinique Préliminaire
 > Exercice académique — ne remplace pas une consultation médicale professionnelle.
 
 ## Description
