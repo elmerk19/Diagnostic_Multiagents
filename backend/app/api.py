@@ -150,3 +150,8 @@ def get_report(thread_id: str):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.post("/sessions/start")
+def start_session():
+    return {"session_id": str(uuid.uuid4())}
