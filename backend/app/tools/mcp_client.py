@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-MCP_DATA_PATH = Path(__file__).resolve().parents[4] / "mcp_server" / "data" / "guidelines.json"
+MCP_DATA_PATH = Path(__file__).resolve().parents[3] / "mcp_server" / "data" / "guidelines.json"
 
 
 def fetch_clinical_guidelines(symptom_category: str) -> str:
