@@ -4,53 +4,65 @@
 ## Description
 ClinIA est un prototype académique de système d'orientation clinique préliminaire basé sur une architecture multi-agents LangGraph. Il simule un workflow médical complet : recueil des informations patient, synthèse clinique préliminaire, validation humaine par un médecin traitant, et génération d'un rapport final structuré.
 
-## Architecture globale
-┌─────────────────────────────────────────────────────────┐
-│                        ClinIA                           │
-├──────────────┬──────────────────┬───────────────────────┤
-│   Frontend   │     Backend      │      MCP Server       │
-│  React/Vite  │  FastAPI +       │  Guidelines cliniques │
-│  Port 5173   │  LangGraph       │  (stdio)              │
-│              │  Port 8000       │                       │
-└──────────────┴──────────────────┴───────────────────────┘
-## Structure du projet
-Diagnostic_Multiagents/
-├── backend/
-│   ├── app/
-│   │   ├── api.py              → endpoints REST FastAPI
-│   │   ├── graph.py            → workflow LangGraph
-│   │   ├── state.py            → état partagé MedicalState
-│   │   ├── llm.py              → configuration LLM
-│   │   ├── nodes/
-│   │   │   ├── supervisor.py         → orchestrateur
-│   │   │   ├── diagnostic_agent.py   → agent diagnostique
-│   │   │   ├── physician_review.py   → Human-in-the-Loop
-│   │   │   └── report_agent.py       → générateur de rapport
-│   │   └── tools/
-│   │       ├── patient_tools.py      → questions patient
-│   │       ├── care_tools.py         → recommandations
-│   │       └── mcp_client.py         → client MCP
-│   └── langgraph.json          → config LangGraph Studio
-├── mcp_server/
-│   ├── server.py               → serveur MCP
-│   └── data/
-│       └── guidelines.json     → orientations cliniques
-├── frontend/
-│   └── src/
-│       └── App.jsx             → interface React ClinIA
-├── docs/
-│   └── screenshots/            → captures d'écran
-├── .env.example
-├── pyproject.toml
-├── rapport_technique.md
-└── README.md
+## Architecture
+
+```mermaid
+graph TB
+    subgraph Frontend["🖥️ Frontend — React/Vite (port 5173)"]
+        UI[Interface ClinIA]
+    end
+
+    subgraph Backend["⚙️ Backend — FastAPI (port 8000)"]
+        API[API REST]
+        subgraph LangGraph["🔗 LangGraph Workflow"]
+            SUP[Supervisor]
+            DIAG[Diagnostic Agent]
+            PHY[Physician Review\nHuman-in-the-Loop]
+            REP[Report Agent]
+        end
+    end
+
+    subgraph MCP["🔌 MCP Server"]
+        GUIDE[Clinical Guidelines]
+    end
+
+    UI -->|HTTP| API
+    API --> SUP
+    SUP --> DIAG
+    DIAG -->|fetch_clinical_guidelines| GUIDE
+    DIAG --> SUP
+    SUP --> PHY
+    PHY --> SUP
+    SUP --> REP
+    REP --> SUP
+```
+
 ## Workflow LangGraph
-START → Supervisor → DiagnosticAgent (×5 questions patient)
-→ recommend_interim_care
-→ fetch_clinical_guidelines (MCP)
-→ Supervisor → PhysicianReview (Human-in-the-Loop)
-→ Supervisor → ReportAgent
-→ Supervisor → END
+
+```mermaid
+flowchart LR
+    START([START]) --> SUP{Supervisor}
+    SUP --> DIAG[Diagnostic Agent\n5 questions patient]
+    DIAG --> SUP
+    SUP --> PHY[Physician Review\nHuman-in-the-Loop]
+    PHY --> SUP
+    SUP --> REP[Report Agent\nRapport final]
+    REP --> SUP
+    SUP --> END([END])
+```
+
+## Stack technique
+
+| Couche | Technologie |
+|--------|-------------|
+| Orchestration agents | LangGraph 0.2+ |
+| Framework IA | LangChain |
+| LLM | OpenAI GPT-4o-mini (optionnel) |
+| API | FastAPI |
+| Frontend | React + Vite |
+| Intégration outils | MCP (Model Context Protocol) |
+| Gestion dépendances | uv |
+
 ## Agents
 
 | Agent | Rôle |
@@ -144,10 +156,8 @@ curl -X POST http://localhost:8000/consultation/resume \
 | Cas 2 | Essoufflement soudain, douleur thoracique | Oui |
 | Cas 3 | Fatigue légère depuis une semaine | Non |
 
-Pour chaque cas : 5 questions posées → recommandation intermédiaire → revue médecin → rapport final.
-
 ## Intégration MCP
-Le serveur MCP expose l'outil `get_clinical_guidelines` qui retourne les orientations cliniques et red flags selon la catégorie symptomatique (respiratory, general). Le client MCP tente d'abord une connexion stdio, puis utilise un fallback local.
+Le serveur MCP expose l'outil `get_clinical_guidelines` qui retourne les orientations cliniques et red flags selon la catégorie symptomatique. Le client tente d'abord une connexion stdio, puis utilise un fallback local.
 
 ## Mode fallback
 Sans clé OpenAI, le système génère des synthèses et rapports de façon déterministe — utile pour les tests et démonstrations.
