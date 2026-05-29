@@ -119,3 +119,23 @@ curl -X POST http://localhost:8000/consultation/resume \
 
 ## Licence
 Projet libre pour usage éducatif.
+
+## Aperçu
+
+### Page d'accueil
+![Accueil](docs/screenshots/page0.png)
+
+### Écran 1 — Cas initial
+![Cas initial](docs/screenshots/page1.png)
+
+### Écran 2 — Questions patient
+![Question 1](docs/screenshots/page3.png)
+![Question 3](docs/screenshots/page5_Q3.png)
+![Question 5](docs/screenshots/page6_Q5.png)
+
+### Écran 3 — Revue médecin
+![Revue médecin](docs/screenshots/page7_revue.png)
+
+### Écran 4 — Rapport final
+![Rapport 1](docs/screenshots/rapport_final1.png)
+![Rapport 2](docs/screenshots/rapport_final2.png)
