@@ -1,14 +1,13 @@
 # 🩺 ClinIA — Orientation Clinique Préliminaire
-
+> Exercice académique — ne remplace pas une consultation médicale professionnelle.
 
 ## Description
-Ce projet implémente un prototype de système de diagnostic clinique assisté par plusieurs agents.
-Le backend expose une API FastAPI pour gérer le flux de consultation, et le frontend React propose une interface utilisateur simple pour démarrer une consultation, répondre aux questions et récupérer le rapport final.
+ClinIA est un prototype de système d'orientation clinique préliminaire basé sur une architecture multi-agents LangGraph. Le backend expose une API FastAPI, le frontend React permet de démarrer une consultation, répondre aux questions et récupérer le rapport final.
 
 ## Architecture
-- `backend/` : API FastAPI et moteur de graphes via `langgraph`.
+- `backend/` : API FastAPI et moteur de graphes via LangGraph.
 - `frontend/` : application React + Vite.
-- `mcp_server/` : serveur MCP pour la configuration et le support des agents.
+- `mcp_server/` : serveur MCP pour les orientations cliniques.
 
 ## Prérequis
 - Python 3.11+
@@ -21,7 +20,7 @@ Le backend expose une API FastAPI pour gérer le flux de consultation, et le fro
 ### Backend
 ```bash
 uv sync
-uv run uvicorn backend.app.api:app --reload --port 8000
+uv run python -m uvicorn backend.app.api:app --reload --port 8000
 ```
 
 ### Frontend
@@ -31,12 +30,16 @@ npm install
 npm run dev -- --host
 ```
 
+### LangGraph Studio
+```bash
+uv run langgraph dev --config backend/langgraph.json
+```
+
 ## Configuration
-Créez un fichier `.env` à la racine à partir de `.env.example` :
 ```bash
 cp .env.example .env
+# Renseignez OPENAI_API_KEY (optionnel)
 ```
-Puis renseignez vos variables :
 > Sans clé OpenAI, le système fonctionne en mode fallback avec des réponses génériques.
 
 ## Utilisation
@@ -47,54 +50,10 @@ Puis renseignez vos variables :
 5. Répondez aux 5 questions posées par l'agent.
 6. Attendez la validation du médecin et récupérez le rapport final.
 
-## Captures d'écran de l'application
-Ce projet inclut un outil pour capturer automatiquement l'interface React du frontend.
-
-### Génération automatique
-1. Installez les dépendances NPM depuis la racine :
-
-```bash
-npm install
-```
-
-2. Exécutez le wrapper de capture :
-
-```bash
-bash tools/capture_frontend_screenshots.sh
-```
-
-3. Les captures s'enregistrent dans `./screenshots` :
-   - `app_home.png`
-   - `app_initial_case.png`
-
-4. Si vous souhaitez utiliser une URL personnalisée, définissez `APP_URL` :
-
-```bash
-APP_URL=http://localhost:5173 bash tools/capture_frontend_screenshots.sh
-```
-
-### Insérer les captures dans le README
-Une fois les images générées, ajoutez-les simplement dans le README en utilisant des chemins relatifs vers le dossier `screenshots`.
-
-Par exemple :
-
-```md
-![Accueil ClinIA](screenshots/app_home.png)
-
-![Cas initial patient](screenshots/app_initial_case.png)
-```
-
-Vous pouvez aussi remplacer les noms de fichier par les captures que vous prendrez manuellement.
-
-### Captures manuelles
-Si vous préférez, vous pouvez aussi prendre des captures d'écran manuelles depuis le navigateur pour :
-- l'écran d'accueil
-- le formulaire de cas initial
-- l'avancement de la consultation
-
 ## Endpoints API
 | Méthode | Endpoint | Description |
 |---------|----------|-------------|
+| POST | `/sessions/start` | Créer une session |
 | POST | `/consultation/start` | Démarrer une consultation |
 | POST | `/consultation/resume` | Reprendre la consultation |
 | GET | `/consultation/{thread_id}` | État de la consultation |
@@ -112,10 +71,16 @@ curl -X POST http://localhost:8000/consultation/resume \
   -d '{"thread_id": "ID_DE_LA_SESSION", "patient_answer": "Depuis 3 jours."}'
 ```
 
+## Jeux de tests
+| Cas | Description | Red flags |
+|-----|-------------|-----------|
+| Cas 1 | Toux sèche depuis 3 jours, fatigue modérée | Non |
+| Cas 2 | Essoufflement soudain, douleur thoracique | Oui |
+| Cas 3 | Fatigue légère depuis une semaine | Non |
+
 ## Limites
 - Prototype académique uniquement.
 - Ne remplace pas un avis médical professionnel.
-- La qualité des suggestions dépend du modèle OpenAI et des prompts.
 
 ## Licence
 Projet libre pour usage éducatif.
