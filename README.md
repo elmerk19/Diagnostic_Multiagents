@@ -139,3 +139,6 @@ Projet libre pour usage éducatif.
 ### Écran 4 — Rapport final
 ![Rapport 1](docs/screenshots/rapport_final1.png)
 ![Rapport 2](docs/screenshots/rapport_final2.png)
+
+### LangGraph Studio
+![LangGraph Studio](docs/screenshots/langgraph_studio.png)
