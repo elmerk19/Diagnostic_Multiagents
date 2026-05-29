@@ -1,5 +1,5 @@
 # 🩺 ClinIA — Orientation Clinique Préliminaire
-> Exercice académique — ne remplace pas une consultation médicale professionnelle.
+
 
 ## Description
 Ce projet implémente un prototype de système de diagnostic clinique assisté par plusieurs agents.
@@ -46,6 +46,51 @@ Puis renseignez vos variables :
 4. Démarrez une consultation en décrivant un cas clinique.
 5. Répondez aux 5 questions posées par l'agent.
 6. Attendez la validation du médecin et récupérez le rapport final.
+
+## Captures d'écran de l'application
+Ce projet inclut un outil pour capturer automatiquement l'interface React du frontend.
+
+### Génération automatique
+1. Installez les dépendances NPM depuis la racine :
+
+```bash
+npm install
+```
+
+2. Exécutez le wrapper de capture :
+
+```bash
+bash tools/capture_frontend_screenshots.sh
+```
+
+3. Les captures s'enregistrent dans `./screenshots` :
+   - `app_home.png`
+   - `app_initial_case.png`
+
+4. Si vous souhaitez utiliser une URL personnalisée, définissez `APP_URL` :
+
+```bash
+APP_URL=http://localhost:5173 bash tools/capture_frontend_screenshots.sh
+```
+
+### Insérer les captures dans le README
+Une fois les images générées, ajoutez-les simplement dans le README en utilisant des chemins relatifs vers le dossier `screenshots`.
+
+Par exemple :
+
+```md
+![Accueil ClinIA](screenshots/app_home.png)
+
+![Cas initial patient](screenshots/app_initial_case.png)
+```
+
+Vous pouvez aussi remplacer les noms de fichier par les captures que vous prendrez manuellement.
+
+### Captures manuelles
+Si vous préférez, vous pouvez aussi prendre des captures d'écran manuelles depuis le navigateur pour :
+- l'écran d'accueil
+- le formulaire de cas initial
+- l'avancement de la consultation
 
 ## Endpoints API
 | Méthode | Endpoint | Description |

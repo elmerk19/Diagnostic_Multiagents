@@ -1,12 +1,12 @@
-from langgraph.checkpoint.memory import MemorySaver
+import os
 from langgraph.graph import END, START, StateGraph
+
 from backend.app.nodes.diagnostic_agent import diagnostic_agent_node
 from backend.app.nodes.physician_review import physician_review_node
 from backend.app.nodes.report_agent import report_agent_node
 from backend.app.nodes.supervisor import route_supervisor, supervisor_node
 from backend.app.state import MedicalState
 
-_checkpointer = MemorySaver()
 _compiled_graph = None
 
 
@@ -36,7 +36,13 @@ def build_graph():
     builder.add_edge("physician_review", "supervisor")
     builder.add_edge("report_agent", "supervisor")
 
-    _compiled_graph = builder.compile(checkpointer=_checkpointer)
+    # Checkpointer uniquement hors LangGraph Studio
+    if not os.getenv("LANGGRAPH_API_URL"):
+        from langgraph.checkpoint.memory import MemorySaver
+        _compiled_graph = builder.compile(checkpointer=MemorySaver())
+    else:
+        _compiled_graph = builder.compile()
+
     return _compiled_graph
 
 

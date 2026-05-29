@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  },
+  "name": "diagnostic_multiagents",
+  "version": "1.0.0",
+  "description": "> Exercice académique — ne remplace pas une consultation médicale professionnelle.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "playwright-core": "^1.60.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "capture:frontend": "bash tools/capture_frontend_screenshots.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmerk19/Diagnostic_Multiagents.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/elmerk19/Diagnostic_Multiagents/issues"
+  },
+  "homepage": "https://github.com/elmerk19/Diagnostic_Multiagents#readme"
+}

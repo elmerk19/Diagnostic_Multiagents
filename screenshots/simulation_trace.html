@@ -1,0 +1,197 @@
+<html><head><meta charset="utf-8"><title>Simulation trace</title></head><body>
+<h1>Simulation trace — Diagnostic_Multiagents</h1>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 1 — status: awaiting_patient</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "diagnostic_agent",
+  "question_count": 0,
+  "current_question": "Depuis combien de temps ressentez-vous ces symptômes ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": null,
+  "interim_care": null,
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "patient_question",
+      "question": "Depuis combien de temps ressentez-vous ces symptômes ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+      "index": 1,
+      "total": 5
+    }
+  ],
+  "interrupt_type": "patient_question",
+  "status": "awaiting_patient"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 2 — status: awaiting_patient</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "diagnostic_agent",
+  "question_count": 1,
+  "current_question": "Quelle est l'intensité de votre inconfort (légère, modérée, intense) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": null,
+  "interim_care": null,
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "patient_question",
+      "question": "Quelle est l'intensité de votre inconfort (légère, modérée, intense) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+      "index": 2,
+      "total": 5
+    }
+  ],
+  "interrupt_type": "patient_question",
+  "status": "awaiting_patient"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 3 — status: awaiting_patient</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "diagnostic_agent",
+  "question_count": 2,
+  "current_question": "Avez-vous de la fièvre, des frissons ou des sueurs nocturnes ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": null,
+  "interim_care": null,
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "patient_question",
+      "question": "Avez-vous de la fièvre, des frissons ou des sueurs nocturnes ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+      "index": 3,
+      "total": 5
+    }
+  ],
+  "interrupt_type": "patient_question",
+  "status": "awaiting_patient"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 4 — status: awaiting_patient</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "diagnostic_agent",
+  "question_count": 3,
+  "current_question": "Prenez-vous actuellement des médicaments ou avez-vous des antécédents importants ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": null,
+  "interim_care": null,
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "patient_question",
+      "question": "Prenez-vous actuellement des médicaments ou avez-vous des antécédents importants ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+      "index": 4,
+      "total": 5
+    }
+  ],
+  "interrupt_type": "patient_question",
+  "status": "awaiting_patient"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 5 — status: awaiting_patient</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "diagnostic_agent",
+  "question_count": 4,
+  "current_question": "Y a-t-il des signes d'aggravation (difficulté respiratoire, douleur thoracique, confusion) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": null,
+  "interim_care": null,
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "patient_question",
+      "question": "Y a-t-il des signes d'aggravation (difficulté respiratoire, douleur thoracique, confusion) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+      "index": 5,
+      "total": 5
+    }
+  ],
+  "interrupt_type": "patient_question",
+  "status": "awaiting_patient"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 6 — status: awaiting_physician</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "physician_review",
+  "question_count": 5,
+  "current_question": "Y a-t-il des signes d'aggravation (difficulté respiratoire, douleur thoracique, confusion) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": "Synthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.",
+  "interim_care": "Recommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.",
+  "physician_treatment": null,
+  "final_report": null,
+  "interrupts": [
+    {
+      "type": "physician_review",
+      "diagnostic_summary": "Synthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.",
+      "interim_care": "Recommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.",
+      "message": "Le médecin traitant doit valider ou ajuster la conduite à tenir avant la génération du rapport final."
+    }
+  ],
+  "interrupt_type": "physician_review",
+  "status": "awaiting_physician"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 7 — status: completed</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "thread_id": "037af360-9132-4006-8243-451530774367",
+  "next": "FINISH",
+  "question_count": 5,
+  "current_question": "Y a-t-il des signes d'aggravation (difficulté respiratoire, douleur thoracique, confusion) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "diagnostic_summary": "Synthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.",
+  "interim_care": "Recommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.",
+  "physician_treatment": "Conseil médical simulé : surveillance et paracétamol si fièvre.",
+  "final_report": "# Rapport d'orientation clinique préliminaire\n\n## 1. Contexte patient\nToux sèche depuis 3 jours, légère fièvre.\n\n## 2. Anamnèse (5 questions)\n- Réponse 1 : Réponse simulée 1\n- Réponse 2 : Réponse simulée 2\n- Réponse 3 : Réponse simulée 3\n- Réponse 4 : Réponse simulée 4\n- Réponse 5 : Réponse simulée 5\n\n## 3. Synthèse clinique préliminaire\nSynthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.\n\n## 4. Recommandation intermédiaire\nRecommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.\n\n## 5. Conduite à tenir (médecin traitant)\nConseil médical simulé : surveillance et paracétamol si fièvre.\n\n## 6. Orientations de référence (MCP)\nAucune donnée MCP locale disponible.\n\n\n---\n**Avertissement :** Ce système ne remplace pas une consultation médicale.\n",
+  "interrupts": [],
+  "interrupt_type": null,
+  "status": "completed"
+}
+</pre>
+</section>
+<section style='margin-bottom:24px;padding:12px;border:1px solid #ddd;'>
+<h2>Step 8 — status: None</h2>
+<pre style='white-space:pre-wrap;'>
+{
+  "messages": [],
+  "next": "FINISH",
+  "initial_case": "Toux sèche depuis 3 jours, légère fièvre.",
+  "question_count": 5,
+  "patient_answers": [
+    "Réponse simulée 1",
+    "Réponse simulée 2",
+    "Réponse simulée 3",
+    "Réponse simulée 4",
+    "Réponse simulée 5"
+  ],
+  "current_question": "Y a-t-il des signes d'aggravation (difficulté respiratoire, douleur thoracique, confusion) ?\n(Contexte initial : Toux sèche depuis 3 jours, légère fièvre.)",
+  "interim_care": "Recommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.",
+  "diagnostic_summary": "Synthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.",
+  "physician_treatment": "Conseil médical simulé : surveillance et paracétamol si fièvre.",
+  "final_report": "# Rapport d'orientation clinique préliminaire\n\n## 1. Contexte patient\nToux sèche depuis 3 jours, légère fièvre.\n\n## 2. Anamnèse (5 questions)\n- Réponse 1 : Réponse simulée 1\n- Réponse 2 : Réponse simulée 2\n- Réponse 3 : Réponse simulée 3\n- Réponse 4 : Réponse simulée 4\n- Réponse 5 : Réponse simulée 5\n\n## 3. Synthèse clinique préliminaire\nSynthèse clinique préliminaire : le patient décrit « Toux sèche depuis 3 jours, légère fièvre. ». Cinq éléments recueillis lors de l'anamnèse orientée. Catégorie symptomatique estimée : respiratory. Orientation non définitive — validation médicale requise.\n\n## 4. Recommandation intermédiaire\nRecommandation intermédiaire : repos, hydratation abondante, surveillance de la température. Consultation rapide si fièvre persistante > 3 jours ou essoufflement.\n\n## 5. Conduite à tenir (médecin traitant)\nConseil médical simulé : surveillance et paracétamol si fièvre.\n\n## 6. Orientations de référence (MCP)\nAucune donnée MCP locale disponible.\n\n\n---\n**Avertissement :** Ce système ne remplace pas une consultation médicale.\n",
+  "symptom_category": "respiratory",
+  "mcp_guidelines": "Aucune donnée MCP locale disponible.",
+  "thread_id": "037af360-9132-4006-8243-451530774367"
+}
+</pre>
+</section>
+</body></html>
